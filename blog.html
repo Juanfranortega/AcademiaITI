@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UPSLP - Cuestionario para Aspirantes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="estilopag1.css" type="text/css">
+    <script type="text/javascript" src="js/jquery/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+    <script src="indexanimation.js"></script>
+    <style>
+    body{
+        cursor: none;
+    }
+    
+    a:hover, 
+    button:hover, 
+    input:hover, 
+    textarea:hover, 
+    label:hover,
+    .carousel-controls label:hover, 
+    .menu-nav-link:hover, 
+    .container .box:hover, 
+    .container2 .box:hover, 
+    .materia:hover, 
+    .cert:hover, 
+    .burger-menu:hover, 
+    .video-player-container video:hover, 
+    .video-player-container video::-webkit-media-controls:hover, 
+    .video-player-container video::-webkit-media-controls-play-button:hover, 
+    .video-player-container video::-webkit-media-controls-timeline:hover, 
+    .info__icon:hover, 
+    .info:hover, 
+    .info__social-link:hover, 
+    .info__icon:hover {
+        cursor: none;
+    }
+
+    .login-root {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    .loginbackground {
+        min-height: 692px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        overflow: hidden;
+    }
+    .flex-flex {
+        display: flex;
+    }
+    .align-center {
+    align-items: center; 
+    }
+    .center-center {
+    align-items: center;
+    justify-content: center;
+    }
+    .box-root {
+        box-sizing: border-box;
+    }
+    .flex-direction--column {
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .loginbackground-gridContainer {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
+        grid-template-columns: [start] 1fr [left-gutter] repeat(16,86.6px) [left-gutter] 1fr [end];
+        -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
+        grid-template-rows: [top] 1fr [top-gutter] repeat(8,64px) [bottom-gutter] 1fr [bottom];
+        justify-content: center;
+        margin: 0 -2%;
+        transform: rotate(-12deg) skew(-12deg);
+    }
+    .box-divider--light-all-2 {
+        box-shadow: inset 0 0 0 2px black;
+    }
+    .box-background--blue {
+        background-color: #006eff;
+    }
+    .box-background--white {
+    background-color: #ffffff; 
+    }
+    .box-background--orange100 {
+        background-color: #f78400;
+    }
+
+    .padding-top--64 {
+    padding-top: 64px;
+    }
+    .padding-top--24 {
+    padding-top: 24px;
+    }
+    .padding-top--48 {
+    padding-top: 48px;
+    }
+    .padding-bottom--24 {
+    padding-bottom: 24px;
+    }
+    .padding-horizontal--48 {
+    padding: 48px;
+    }
+    .padding-bottom--15 {
+    padding-bottom: 15px;
+    }
+
+
+    .flex-justifyContent--center {
+    -ms-flex-pack: center;
+    justify-content: center;
+    }
+
+    .formbg {
+        margin: 0px auto;
+        width: 100%;
+        max-width: 448px;
+        background: rgb(255, 255, 255);
+        border-radius: 4px;
+        box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+    }
+
+    .reset-pass a,label {
+        font-size: 14px;
+        font-weight: 600;
+        display: block;
+    }
+    .reset-pass > a {
+        text-align: right;
+        margin-bottom: 10px;
+    }
+    .grid--50-50 {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+    }
+
+    .field input,
+        .field textarea,
+        .field select {
+            font-size: 16px;
+            line-height: 28px;
+            padding: 8px 16px;
+            width: 100%;
+            min-height: 44px;
+            border: unset;
+            border-radius: 4px;
+            outline-color: rgba(84, 105, 212, 0.5);
+            background-color: #fff;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 1px rgba(60, 66, 87, 0.16), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+    input[type="submit"] {
+        background-color: rgb(84, 105, 212);
+        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                    rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                    rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                    rgb(84, 105, 212) 0px 0px 0px 1px, 
+                    rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                    rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                    rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+        color: #fff;
+        font-weight: 600;
+        cursor: none;
+    }
+    .field-checkbox input {
+        width: 20px;
+        height: 15px;
+        margin-right: 5px; 
+        box-shadow: unset;
+        min-height: unset;
+    }
+    .field-checkbox label {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+    a.ssolink {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+    }
+    .footer-link span {
+        font-size: 14px;
+        text-align: center;
+    }
+    .listing a {
+        color: #697386;
+        font-weight: 600;
+        margin: 0 10px;
+    }
+
+    .animationRightLeft {
+    animation: animationRightLeft 2s ease-in-out infinite;
+    }
+    .animationLeftRight {
+    animation: animationLeftRight 2s ease-in-out infinite;
+    }
+    .tans3s {
+    animation: animationLeftRight 3s ease-in-out infinite;
+    }
+    .tans4s {
+    animation: animationLeftRight 4s ease-in-out infinite;
+    }
+
+    @keyframes animationLeftRight {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(1000px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+    } 
+
+    @keyframes animationRightLeft {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+    } 
+    </style>
+</head>
+<body>
+    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqb818e4738c5e3a9627e09bb45dcb3cc63d7927965e7bc6d18fc0c3053b6958da" defer></script>
+    <div class="custom-cursor" id="customCursor"></div>
+        <div class="menubar">
+            <header class="hero-nav" id="heroNav"> 
+                <div class="hero-background">
+                    <div class="half-color">
+                        <h2 class="fondo">Politécnica</h2>
+                        <h2 class="fondo" style="background-image: url(fachadaUPSLP2.jpg);">Potosi</h2>
+                    </div>
+                    <h2 class="fondo2">Universidad</h2>
+                    <h2 class="fondo2" style="margin-top: 300px;">de San Luis</h2>
+                </div>
+                
+                <h1>Universidad Politécnica de San Luis Potosí</h1>
+                <h1 style="color: black; font-size: 24px;">Blog</h1>
+            </header>
+        </div>
+        <div class="container ">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="logoUPSLP.jpg">
+                </div>
+                <div class="content">
+                    <div>
+                    </p>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="container2">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="logoUPSLP.jpg">
+                </div>
+                <div class="content">
+                    <div>
+                    </p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <input type="checkbox" id="burger-toggle">
+    
+    <label for="burger-toggle" class="burger-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+<div class="menu">
+    <div class="menu-inner">
+    <ul class="menu-nav" style="padding: 50px;">
+        <li class="menu-nav-item"><a class="menu-nav-link" href="index.html"><span>
+            <div>Inicio</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="informacion.html"><span>
+            <div>Información</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="carreras.html"><span>
+            <div>Carreras</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="residencia.html"><span>
+            <div>Residencias</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="proyectos.html"><span>
+            <div>Proyectos</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="blog.html"><span>
+            <div>Blog</div>
+            </span></a></li>
+    </ul>
+    <div class="gallery">
+        <div class="title">
+            <p>Media</p>
+        </div>
+        <div class="images">
+            <a class="image-link" href="galeria.html">
+                <div class="image" data-label="Galeria"><img src="Banner-Competencia-MOS-Interna-nacional-2024-1.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="videos.html">
+                <div class="image" data-label="Videos"><img src="BANNER-CONVOCATORIA-UPSLP-JUNIO-2024.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="Certificaciones.html">
+                <div class="image" data-label="Certificaciones"><img src="Banner-Solicitud-de-Ingreso-VD-2024.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="personal.html">
+                <div class="image" data-label="Personal"><img src="Banner-Solicitud-de-Ingreso-VD-2024.jpg" alt=""></div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="page-content">
+    <div class="fixed-background">
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh; flex-grow: 1;">
+                <div class="loginbackground box-background--white padding-top--64">
+                    <div class="loginbackground-gridContainer">
+                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                            <div class="box-root box-background--blue animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                            <div class="box-root box-background--orange100 animationRightLeft" style="flex-grow: 1;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-root padding-top--24 flex-flex flex-direction--column flex-justifyContent--center">
+                    <div class="formbg-outer">
+                        <div class="formbg">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <span class="padding-bottom--15" style="font-size: 20px; font-weight: bold; color: #f78400;">Cuestionario para Aspirantes</span>
+                                <form id="myform" onsubmit="return generarPDF();">
+                                    <div class="field padding-bottom--24">
+                                        <label for="nombre">Nombre Completo</label>
+                                        <input type="text" id="nombre" name="nombre" required>
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="email">Correo Electrónico</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="objetivos">¿Cuál crees que es el objetivo principal de la carrera de Ingeniería en Telemática y Tecnologías de la Información (ATIT)?</label>
+                                        <textarea id="objetivos" name="objetivos" required></textarea>
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="mision">¿Qué entiendes por la misión de la carrera de ATIT?</label>
+                                        <textarea id="mision" name="mision" required></textarea>
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <label for="vision">¿Cómo describirías la visión de la carrera de ATIT?</label>
+                                        <textarea id="vision" name="vision" required></textarea>
+                                    </div>
+                                    <div class="field padding-bottom--24">
+                                        <input type="submit" name="submit" value="Generar PDF">
+                                    </div>
+                                </form>
+                                <iframe frameborder="0" style="margin-left: 16px;" width="340" height="400" id="pdf-iframe"></iframe>
+                                <script>
+                                    function generarPDF() {
+                                        const nombre = document.getElementById('nombre').value;
+                                        const email = document.getElementById('email').value;
+                                        const objetivos = document.getElementById('objetivos').value;
+                                        const mision = document.getElementById('mision').value;
+                                        const vision = document.getElementById('vision').value;
+
+                                        const doc = new jsPDF();
+                                        doc.setFontSize(28);
+                                        doc.text(20, 20, 'Resultados del Cuestionario de Diagnóstico ATIT');
+                                        doc.text(20, 30, 'Nombre:' + nombre);
+                                        doc.text(20, 40, 'Correo Electrónico:' + email);
+                                        doc.text(20, 50, 'Objetivo principal de ATIT:' + objetivos);
+                                        doc.text(20, 60, 'Misión de ATIT:' + mision);
+                                        doc.text(20, 70, 'Visión de ATIT:' + vision);
+
+                                        var string = doc.output('datauristring');
+                                        $('#pdf-iframe').attr('src', string); 
+                                        return false; 
+                                    }
+                                </script>
+
+                            </div>
+                        </div>
+                        <div class="footer-link padding-top--24">
+                            <span>© 2024 Universidad Politécnica de San Luis Potosí</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div style="background-color: rgb(250, 121, 0); height: 50px; margin-bottom: 0px;"></div>
+    <div class="footer">
+        <section id="contact">
+
+        <h1 style="text-align: center; color: white ; font-size: 40px;">Contacto</h1>
+        
+        <div class="contact-wrapper">
+        
+        <!-- Left contact page --> 
+            
+        <form id="contact-form" class="form-horizontal" action="mailto:183408@upslp.edu.mx" method="post">
+                
+            <div class="form-group">
+                <div class="col-sm-12">
+                <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-sm-12">
+                <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+                </div>
+            </div>
+        
+            <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+            
+            <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                <div class="alt-send-button">
+                <span class="send-text">SEND</span>
+                </div>
+            
+            </button>
+            
+            </form>
+            
+            
+        <!-- Left contact page --> 
+            
+            <div class="direct-contact-container">
+        
+                <ul class="contact-list">
+                <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">San Luis Potosí, San Luis Potosí</span></i></li>
+                
+                <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:444-870-21-00" title="Danos una llamada">(444) 870 - 21 - 00</a></span></i></li>
+                
+                <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:politecnica@upslp.edu.mx" title="Mandanos un correo">politecnica@upslp.edu.mx</a></span></i></li>
+                
+                </ul>
+        
+                <hr>
+                <ul class="social-media-list">
+                <li>
+                    <a href="https://t.me/upslp_oficial" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px; margin-right: 6px;" aria-hidden="true" src="telegram.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/upslp" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="facebook.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/upslp_oficial" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="instagram.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/upslp_mx" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="twitter.png" height="50px" width="50px">
+                    </a>
+                </li> 
+                <li>
+                    <a href="https://www.youtube.com/c/upslpoficial2001" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="youtube.png" height="50px" width="50px">
+                    </a>
+                    
+                </li>     
+                </ul>
+                <hr>
+        
+                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+        
+            </div>
+            
+        </div>
+        
+        </section>  
+        
+                    
+    </div>
+</footer>
+
+
+</body>
+</html>

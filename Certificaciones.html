@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERTIFICACIONES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilopag1.css" type="text/css">
+    <script src="animationpag1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #info-container, #info-container2 {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px; /* Añadir relleno a los lados para dispositivos más pequeños */
+            display: none;
+        }
+        .cert {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            max-width: 100%; /* Ajustar imágenes al ancho del contenedor */
+        }
+        .cert:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cert-card {
+            margin: 20px;
+            text-align: center;
+            background-color: #f0f0f0; /* Gris claro */
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+        .cert-image {
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .info-minicontainer {
+            display: none;
+            color: #ffffff; /* Blanco */
+            font-size: 14px; /* Reducción del tamaño de la fuente */
+            margin-top: 10px;
+            animation: fadeIn 0.5s ease; /* Animación de aparición */
+        }
+        .info-minicontainer p{
+            margin: 5px 0;
+            font-size: 16px !important;
+        }
+        
+        /* Animación de aparición */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+       /* Estilos para listas dentro de info-container e info-container2 */
+        #info-container ul,
+        #info-container2 ul {
+            list-style-type: disc; /* Quita los marcadores de lista */
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        #info-container ul li,
+        #info-container2 ul li {
+            margin-bottom: 15px; /* Espacio entre elementos de lista */
+        }
+
+        #info-container ul li:hover,
+        #info-container2 ul li:hover {
+            background-color: #ffffff; /* Color de fondo al pasar el ratón */
+            color: #ff7b00; /* Color del texto al pasar el ratón */
+        }
+
+        /* Estilos específicos para el texto de la lista dentro de info-container e info-container2 */
+        #info-container ul li,
+        #info-container2 ul li {
+            padding: 10px 15px; /* Espaciado interno */
+            background: #000000; /* Color de fondo */
+            font-weight: bold;
+            border-left: 4px solid #ff7b00; /* Borde izquierdo */
+            border-radius: 8px; /* Bordes redondeados */
+            transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Transiciones suaves */
+        }
+
+        #info-container ul li:hover,
+        #info-container2 ul li:hover {
+            background-color: #ffffff; /* Color de fondo al pasar el ratón */
+            color: #ff7b00 !important; /* Color del texto al pasar el ratón */
+            border-color: #ff7b00; /* Cambio de color del borde al pasar el ratón */
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqb818e4738c5e3a9627e09bb45dcb3cc63d7927965e7bc6d18fc0c3053b6958da" defer></script>
+    <div class="custom-cursor" id="customCursor"></div>
+        <div class="menubar">
+            <header class="hero-nav" id="heroNav"> 
+                <div class="hero-background">
+                    <div class="half-color">
+                        <h2 class="fondo">Politécnica</h2>
+                        <h2 class="fondo" style="background-image: url(fachadaUPSLP2.jpg);">Potosi</h2>
+                    </div>
+                    <h2 class="fondo2">Universidad</h2>
+                    <h2 class="fondo2" style="margin-top: 300px;">de San Luis</h2>
+                </div>
+                
+                <h1>Universidad Politécnica de San Luis Potosí</h1>
+                <h1 style="color: black; font-size: 24px;">Certificaciones</h1>
+            </header>
+        </div>
+        <div class="container ">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="logoUPSLP.jpg">
+                </div>
+                <div class="content">
+                    <div>
+                    </p>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class="container2">
+            <div class="box">
+                <div class="imgBx">
+                    <img src="logoUPSLP.jpg">
+                </div>
+                <div class="content">
+                    <div>
+                    </p>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <input type="checkbox" id="burger-toggle">
+    
+    <label for="burger-toggle" class="burger-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+<div class="menu">
+    <div class="menu-inner">
+    <ul class="menu-nav" style="padding: 50px;">
+        <li class="menu-nav-item"><a class="menu-nav-link" href="index.html"><span>
+            <div>Inicio</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="informacion.html"><span>
+            <div>Información</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="carreras.html"><span>
+            <div>Carreras</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="residencia.html"><span>
+            <div>Residencias</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="proyectos.html"><span>
+            <div>Proyectos</div>
+            </span></a></li>
+        <li class="menu-nav-item"><a class="menu-nav-link" href="blog.html"><span>
+            <div>Blog</div>
+            </span></a></li>
+    </ul>
+    <div class="gallery">
+        <div class="title">
+            <p>Media</p>
+        </div>
+        <div class="images">
+            <a class="image-link" href="galeria.html">
+                <div class="image" data-label="Galeria"><img src="Banner-Competencia-MOS-Interna-nacional-2024-1.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="videos.html">
+                <div class="image" data-label="Videos"><img src="BANNER-CONVOCATORIA-UPSLP-JUNIO-2024.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="Certificaciones.html">
+                <div class="image" data-label="Certificaciones"><img src="Banner-Solicitud-de-Ingreso-VD-2024.jpg" alt=""></div>
+            </a>
+            <a class="image-link" href="personal.html">
+                <div class="image" data-label="Personal"><img src="Banner-Solicitud-de-Ingreso-VD-2024.jpg" alt=""></div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="page-content">
+    
+    <div style="margin-left: 125px;">
+        <img id="imagen1" class="materia" style="margin-right: 325px;" src="https://www.upslp.edu.mx/upslp/wp-content/uploads/2015/02/logo-ITI.jpg" height="350px" width="350px">
+        <img id="imagen2" class="materia" src="https://www.upslp.edu.mx/upslp/wp-content/uploads/2020/09/Logo-ITEM-web-20-21.png" height="350px" width="350px">
+    </div>
+    <div id="info-container">
+        <div class="fondodatos">
+            <h2>Certificaciones</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div>
+                <img id="cert1" class="cert"src="oracle.png" height="150px" width="150px">
+                <div class="info-minicontainer" id="info-minicontainer" style=color: white; >
+                    <p style=color: white; >Oracle Certified Associate, MySQL 5</p>
+                    <p>Oracle Certified Professional, MySQL 5.6 Developer</p>
+                    <p>Oracle Certified Associate, Java SE 5/SE 6</p>
+                    <p>Oracle Certified Professional, Java SE 6 Programmer</p>
+                    <p>Oracle Certified Associate, Java SE 7 Programmer</p>
+                    <p>Oracle Certified Associate, Oracle Solaris 10 Operating System</p>
+                    <p>Oracle Certified Professional, Oracle Solaris 10 System Administrator</p>
+                    <p>Oracle Certified Associate, Oracle Solaris 11 System Administrator</p>
+                </div>
+            </div>
+        
+            <div style="margin-right: 20px; text-align: center;">
+                <img id="cert2" class="cert" style="margin-bottom: 10px;" src="cisco.jpg" height="150px" width="150px">
+                <div class="info-minicontainer" id="info-minicontainer2">
+                    <p>Cisco Certified Entry Networking Technician (CCENT)</p>
+                    <p>Cisco Certified Network Associate (CCNA)</p>
+                </div>
+            </div>
+        
+            <div style="margin-right: 20px; text-align: center;">
+                <img id="cert3" class="cert" style="margin-bottom: 10px;" src="mta office.png" height="150px" width="150px">
+                <div class="info-minicontainer" id="info-minicontainer3">
+                    <p>Microsoft Technology Associate: Database Fundamentals</p>
+                </div>
+            </div>
+        
+            <div style="text-align: center;">
+                <img id="cert4" class="cert" style="margin-bottom: 10px;" src="mta.png" height="150px" width="150px">
+                <div class="info-minicontainer" id="info-minicontainer4">
+                    <p>Microsoft Office Specialist: Microsoft Office Word 2013</p>
+                    <p>Microsoft Office Specialist: Microsoft Office PowerPoint 2013</p>
+                    <p>Microsoft Office Specialist: Microsoft Office Excel 2013</p>
+                </div>
+            </div>
+        </div>
+        <div class="fondodatos">
+            <h2>Logros / Distinciones:</h2>
+        </div>
+        <ul style="color:white;">
+            <li>Mejor Academia a nivel Latinoamérica que promueve la certificación, el programa Cisco Networking Academy Program y que forma nuevos estudiantes en el área de TI.</li>
+            <li>3 medallas a estudiantes ejemplares otorgadas por la asociación Trayectoria de Éxito.</li>
+            <li>1er, 6º, 5º lugar concurso Netriders México, 2009, 2011 y 2013.</li>
+            <li>1er lugar expo ciencias otorgada por la Red Nacional de Actividades Juveniles en Ciencia y Tecnología, 2012 y 2013.</li>
+            <li>5º y 6º lugar en el Torneo Mexicano de Robótica, 2016.</li>
+            <li>150+ Certificaciones CCNA y CCENT como Academia CCNA.</li>
+            <li>480+ Certificaciones JAVA y Solaris como Academia Oracle.</li>
+            <li>Proyecto Azios: Leyendas Potosinas (2018-2019): Estudiantes del noveno semestre de los Programas Educativos de Ingeniería en Tecnologías de la Información (ITI), Ingeniería en Telemática (ITEM) y Licenciatura en Mercadotecnia Internacional (LMI), de la Universidad Politécnica de San Luis Potosí (UPSLP), y liderados por el profesor Víctor Manuel Fernández Mireles, desarrollaron un videojuego utilizando realidad virtual en el que se adaptan algunas leyendas potosinas. En la implementación del videojuego se adaptó la leyenda “La bruja huachichil del Barrio de Tlaxcala”. En este videojuego, se rescatan algunas leyendas potosinas y elementos históricos del viejo San Luis de forma innovadora utilizando realidad virtual. Este trabajo se presentó en el Concurso Nacional de Videojuegos MX en la categoría “Universitarios” en la cual se recibieron 264 proyectos de los cuales ocho obtuvieron algún reconocimiento. El videojuego presentado por la Universidad recibió el premio al “Mejor Juego Cultural-Educativo”.</li>
+            <li>Proyecto XTOR (2015-2019): Estudiantes del PE liderados por el profesor Rafael Llamas Contreras a través del grupo de trabajo de Cyberseguridad y en colaboración con la Secretaría de Seguridad Pública del Estado de San Luis Potosí, desarrollaron una aplicación llamada XTOR. Esta aplicación bloquea las llamadas entrantes al celular si es que coincide con algún número que fue reportado como un número del que se han hecho llamadas para extorsionar. La base de datos en la que se consultan los números reportados se actualiza de manera regular por la Secretaría de Seguridad Pública del Estado de San Luis Potosí. Esta aplicación se desarrolló para el sistema operativo Android y actualmente se encuentra disponible de forma gratuita desde “Play Store”.</li>
+            <li>Proyecto GIGI (2017): Como parte de las actividades de divulgación de la ciencia en la institución, estudiantes del PE crearon un robot utilizando diversos objetos de uso cotidiano. Dada la temática de la Semana de la Ciencia en la que se participó, el robot reproducía frases orientadas al cuidado del agua. Este robot fue bautizado bajo el nombre de GIGI y se presentó en la Semana de la Ciencia. El objetivo fue mostrar a los niños lo que pueden ser capaces de hacer en carreras del área de las ingenierías, así mismo, como se puede contribuir a mantener la naturaleza. Este robot en su primera versión fue programado para compartir frases simples y después a través de reconocimiento enseñar a los niños.</li>
+            <li>Club de Robótica: El Club de Robótica está conformado por alumnos que tienen el gusto por la programación y la robótica. Ya han sido varias las generaciones que han participado en este club, dedicando horas extras e independientes a sus materias y laboratorios para la construcción de sus robots y para participar en la competencia de cierre. Los miembros de este club pertenecen principalmente a estudiantes de los primeros semestres, quienes son liderados por compañeros estudiantes de semestres más avanzados. Este tipo de actividades fortalece las habilidades de compañerismo, competencia, investigación, autoaprendizaje, pero sobre todo el saber que aún se tiene un gran camino por recorrer como estudiantes del PE de ITI, y sobre todo se preparan para competencias más avanzadas, como el Torneo Mexicano de Robótica, quienes participan en este torneo son los mejores de cada una de las competencias de cierre y participan cada año.</li>
+            <li>Proyecto ADA: Como una iniciativa gubernamental, la Institución, en conjunto con la Academia y estudiantes y egresadas mujeres de la carrera de ITI, buscan fortalecer el gusto por las profesiones en ingeniería a estudiantes que actualmente se encuentran en formación en las secundarias del estado, participan con la impartición de pláticas y talleres de manera gratuita fortaleciendo el futuro de las profesiones en el país.</li>
+            <li>Proyecto Semana de la Ciencia: PEPA PIG (2017): Juego de Realidad Virtual y Realidad Aumentada, creado con la intención de divulgar la ciencia motivando a los estudiantes visitantes dentro del rango de edades de 5 a 10 años a buscar el cuidado del agua. Este juego fue desarrollado por estudiantes del programa Educativo de ITI.</li>
+            <li>Reconocimiento por haber concluido al menos 12 años en el programa Cisco Networking Academy Program.</li>
+            <li>Única Universidad a nivel nacional que mantiene los roles de Centro Docente, Centro de Soporte y Centro de Entrenamiento para la región centro de México; única Universidad a nivel Latinoamérica participando en el programa Girls Power Tech, Acceleration Program dentro del programa Cisco Networking Academy Program.</li>
+        </ul>
+        <div class="fondodatos">
+            <h2>Cantidad actual de Egresados:</h2>
+        </div>
+        <div class="containerIcon">
+            <img src="user.png" alt="Ícono de Flaticon" height="50px" width="50px">
+        </div>
+        <p id="graduateCount" class="hiddenP">0</p>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // IntersectionObserver for animating elements
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('move');
+                            entry.target.classList.remove('hiddenP');
+                            if (entry.target.id === 'studentCount') {
+                                // Start the counting animation if it's the student count element
+                                startCounting(entry.target, 0, 5000000000000000, 5000);
+                            }
+                            if (entry.target.id === 'graduateCount') {
+                                // Start the counting animation if it's the graduate count element
+                                startCounting(entry.target, 0, 605, 2000);
+                            }
+                        } else {
+                            entry.target.classList.remove('move');
+                            entry.target.classList.add('hiddenP');
+                        }
+                    });
+                });
+        
+                // Select all elements with the class 'hiddenP'
+                const hiddenElements = document.querySelectorAll('.hiddenP');
+                hiddenElements.forEach((el) => observer.observe(el));
+        
+                // Function for animating the count
+                const startCounting = (element, start, end, duration) => {
+                    let startTime = null;
+                    let current = start;
+        
+                    const animateCount = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const progress = timestamp - startTime;
+                        current = Math.min(Math.floor(progress / duration * (end - start) + start), end);
+                        element.textContent = current.toLocaleString();
+                        if (current < end) {
+                            requestAnimationFrame(animateCount);
+                        }
+                    };
+        
+                    requestAnimationFrame(animateCount);
+                };
+            });
+        </script>
+        <div class="fondodatos">
+            <h2>Estudiantes con Distinciones</h2>
+        </div>
+        <div class="containerCard">
+            <div class="card">
+                <div class="card__border">
+                    <div class="card__perfil">
+                        <img src="user.png" alt="card image" class="card__img">
+                    </div>
+                </div>
+                <h3 class="card__name">Victoria Carolina Rodríguez Lárraga</h3>
+                <span class="card__profession">1° Lugar Nacional en Excel 2013, año 2013</span>
+                <span class="card__profession">12° Lugar Mundial</span>
+                <!-- Card info -->
+                <div class="info">
+                    <div class="info__icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="info__border">
+                        <div class="info__perfil">
+                            <img src="user.png" alt="card image" class="info__img">
+                        </div>
+                    </div>
+                    <div class="info__data">
+                        <h3 class="info__name">Victoria Carolina Rodríguez Lárraga</h3>
+                        <span class="info__profession">1° Lugar Nacional en Excel 2013, año 2013</span>
+                        <span class="info__profession">12° Lugar Mundial</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__border">
+                    <div class="card__perfil">
+                        <img src="user.png" alt="card image" class="card__img">
+                    </div>
+                </div>
+                <h3 class="card__name">Brian Issaí Rivera Carreón</h3>
+                <span class="card__profession">1° Lugar Nacional en Excel 2019, año 2022</span>
+                <!-- Card info -->
+                <div class="info">
+                    <div class="info__icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="info__border">
+                        <div class="info__perfil">
+                            <img src="user.png" alt="card image" class="info__img">
+                        </div>
+                    </div>
+                    <div class="info__data">
+                        <h3 class="info__name">Brian Issaí Rivera Carreón</h3>
+                        <span class="info__profession">1° Lugar Nacional en Excel 2019, año 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fondodatos">
+            <h2>Certificación CIEES</h2>
+        </div>
+        <div class="hiddenImg" id="plan-de-estudios">
+            <img src="ciees.png" alt="Plan de estudios" height="550px" width="350px">
+        </div>
+        
+        <script>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    console.log(entry);
+                    if (entry.isIntersecting) {
+                        // Agrega la clase 'plan-de-estudios' para iniciar la animación
+                        entry.target.classList.add('plan-de-estudios');
+                        entry.target.classList.remove('hiddenImg');
+                    } else {
+                        // Si el elemento sale de la vista, elimina la clase de animación
+                        entry.target.classList.remove('plan-de-estudios');
+                        entry.target.classList.add('hiddenImg');
+                    }
+                });
+            });
+        
+            // Selecciona todos los elementos que tienen la clase 'hidden'
+            const hiddenElements = document.querySelectorAll('.hiddenImg');
+            hiddenElements.forEach((el) => observer.observe(el));
+        
+            // Volver a observar elementos cuando la ventana se desplaza
+            window.addEventListener('scroll', () => {
+                hiddenElements.forEach((el) => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        observer.observe(el);
+                    }
+                });
+            });
+        </script>
+    </div>
+    <div id="info-container2">
+        <div class="fondodatos">
+            <h2>Certificaciones</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div style="margin-right: 20px; text-align: center;">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="adobe.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="agi.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="mta office.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="certiport.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="cisco.jpg" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="comptia.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="labview.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="itil.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="nxp.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="oracle.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="pearson.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="sap.png" height="150px" width="150px">
+                <img id="cert50" class="cert" style="margin-bottom: 10px;" src="mta.png" height="150px" width="150px">
+            </div>
+        </div>
+        <div class="fondodatos">
+            <h2>Logros / Distinciones / Eventos</h2>
+        </div>
+        <ul style=" color: white;">
+            <li>Encuentro de Jóvenes Investigadores del Estado de San Luis Potosí.</li>
+            <li>Encuentro Nacional de Jóvenes Investigadores de México.</li>
+            <li>Premio al Reto Nacional de la Agencia Espacial Mexicana.</li>
+            <li>Premio a la Investigación Antonio Villaseñor.</li>
+            <li>Encuentro Internacional para Sistemas de Comunicaciones Inalámbricas en Perú, Argentina, Venezuela y México.</li>
+            <li>Encuentro de Jóvenes Universitarios en Cisco Day.</li>
+            <li>Premio en Evento Cisco Netriders.</li>
+            <li>Congreso Internacional de Telemática en la Universidad Autónoma de Colima.</li>
+            <li>Becas a la Excelencia Académica.</li>
+            <li>Premio a la Trayectoria Académica.</li>
+            <li>Summer School Mathematica.</li>
+            <li>Reconocimiento por haber concluido al menos 12 años en el programa Cisco Networking Academy Program.</li>
+            <li>Única Universidad a nivel nacional que mantiene los roles de Centro Docente, Centro de Soporte y Centro de Entrenamiento para la región centro de México.</li>
+            <li>Única Universidad a nivel Latinoamérica participando en el programa Girls PowerTech, Acceleration Program dentro del programa Cisco Networking Academy Program.</li>
+            <li>Padrón de Alto Rendimiento del EGEL-Informática.</li>
+        </ul>
+        <div class="fondodatos">
+            <h2>Cantidad actual de Egresados:</h2>
+        </div>
+        <div class="containerIcon">
+            <img src="user.png" alt="Ícono de Flaticon" height="50px" width="50px">
+        </div>
+        <p id="graduateCount" class="hiddenP">0</p>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // IntersectionObserver for animating elements
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('move');
+                            entry.target.classList.remove('hiddenP');
+                            if (entry.target.id === 'studentCount') {
+                                // Start the counting animation if it's the student count element
+                                startCounting(entry.target, 0, 5000000000000000, 5000);
+                            }
+                            if (entry.target.id === 'graduateCount') {
+                                // Start the counting animation if it's the graduate count element
+                                startCounting(entry.target, 0, 605, 2000);
+                            }
+                        } else {
+                            entry.target.classList.remove('move');
+                            entry.target.classList.add('hiddenP');
+                        }
+                    });
+                });
+        
+                // Select all elements with the class 'hiddenP'
+                const hiddenElements = document.querySelectorAll('.hiddenP');
+                hiddenElements.forEach((el) => observer.observe(el));
+        
+                // Function for animating the count
+                const startCounting = (element, start, end, duration) => {
+                    let startTime = null;
+                    let current = start;
+        
+                    const animateCount = (timestamp) => {
+                        if (!startTime) startTime = timestamp;
+                        const progress = timestamp - startTime;
+                        current = Math.min(Math.floor(progress / duration * (end - start) + start), end);
+                        element.textContent = current.toLocaleString();
+                        if (current < end) {
+                            requestAnimationFrame(animateCount);
+                        }
+                    };
+        
+                    requestAnimationFrame(animateCount);
+                };
+            });
+        </script>
+        <div class="fondodatos">
+            <h2>Estudiantes con Distinciones</h2>
+        </div>
+        <div class="containerCard">
+            <div class="card">
+                <div class="card__border">
+                    <div class="card__perfil">
+                        <img src="user.png" alt="card image" class="card__img">
+                    </div>
+                </div>
+                <h3 class="card__name">Victoria Carolina Rodríguez Lárraga</h3>
+                <span class="card__profession">1° Lugar Nacional en Excel 2013, año 2013</span>
+                <span class="card__profession">12° Lugar Mundial</span>
+                <!-- Card info -->
+                <div class="info">
+                    <div class="info__icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="info__border">
+                        <div class="info__perfil">
+                            <img src="user.png" alt="card image" class="info__img">
+                        </div>
+                    </div>
+                    <div class="info__data">
+                        <h3 class="info__name">Victoria Carolina Rodríguez Lárraga</h3>
+                        <span class="info__profession">1° Lugar Nacional en Excel 2013, año 2013</span>
+                        <span class="info__profession">12° Lugar Mundial</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__border">
+                    <div class="card__perfil">
+                        <img src="user.png" alt="card image" class="card__img">
+                    </div>
+                </div>
+                <h3 class="card__name">Brian Issaí Rivera Carreón</h3>
+                <span class="card__profession">1° Lugar Nacional en Excel 2019, año 2022</span>
+                <!-- Card info -->
+                <div class="info">
+                    <div class="info__icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="info__border">
+                        <div class="info__perfil">
+                            <img src="user.png" alt="card image" class="info__img">
+                        </div>
+                    </div>
+                    <div class="info__data">
+                        <h3 class="info__name">Brian Issaí Rivera Carreón</h3>
+                        <span class="info__profession">1° Lugar Nacional en Excel 2019, año 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div style="background-color: rgb(250, 121, 0); height: 50px; margin-bottom: 0px;"></div>
+    <div class="footer">
+        <section id="contact">
+
+        <h1 style="text-align: center; color: white ; font-size: 40px;">Contacto</h1>
+        
+        <div class="contact-wrapper">
+        
+        <!-- Left contact page --> 
+            
+            <form id="contact-form" class="form-horizontal" action="mailto:183408@upslp.edu.mx" method="post">
+                
+            <div class="form-group">
+                <div class="col-sm-12">
+                <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-sm-12">
+                <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
+                </div>
+            </div>
+        
+            <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+            
+            <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                <div class="alt-send-button">
+                    <span class="send-text">SEND</span>
+                </div>
+            
+            </button>
+            
+            </form>
+            
+        <!-- Left contact page --> 
+            
+            <div class="direct-contact-container">
+        
+                <ul class="contact-list">
+                <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">San Luis Potosí, San Luis Potosí</span></i></li>
+                
+                <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:444-870-21-00" title="Danos una llamada">(444) 870 - 21 - 00</a></span></i></li>
+                
+                <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:politecnica@upslp.edu.mx" title="Mandanos un correo">politecnica@upslp.edu.mx</a></span></i></li>
+                
+                </ul>
+        
+                <hr>
+                <ul class="social-media-list">
+                <li>
+                    <a href="https://t.me/upslp_oficial" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px; margin-right: 6px;" aria-hidden="true" src="telegram.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/upslp" target="_blank" class="contact-icon" >
+                        <img style="margin-top: 5px;" aria-hidden="true" src="facebook.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/upslp_oficial" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="instagram.png" height="50px" width="50px">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/upslp_mx" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="twitter.png" height="50px" width="50px">
+                    </a>
+                </li> 
+                <li>
+                    <a href="https://www.youtube.com/c/upslpoficial2001" target="_blank" class="contact-icon">
+                        <img style="margin-top: 5px;" aria-hidden="true" src="youtube.png" height="50px" width="50px">
+                    </a>
+                    
+                </li>     
+                </ul>
+                <hr>
+        
+                <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+        
+            </div>
+            
+        </div>
+        
+        </section>  
+        
+                    
+    </div>
+</footer>
+
+
+</body>
+</html>

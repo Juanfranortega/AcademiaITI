@@ -1,0 +1,1999 @@
+/* Importación de fuentes de Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700"); /* Fuentes Lora */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"); /* Fuentes Poppins */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');/* Fuentes Montserrat */
+
+/* Estilos generales para el cuerpo del documento */
+body {
+    background-color: rgb(41, 38, 38); /* Color de fondo para el cuerpo */
+    min-height: 100vh; /* Altura mínima igual al 100% del viewport */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    max-width: 3000px; /* Ancho máximo del cuerpo */
+    font-family: 'Lora', sans-serif; /* Fuente principal del texto */
+    cursor: none; /* Oculta el cursor predeterminado */
+}
+
+/* Estilos para el cursor personalizado */
+.custom-cursor {
+    width: 20px; /* Ancho del cursor personalizado */
+    height: 20px; /* Altura del cursor personalizado */
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo del cursor */
+    border: 2px solid white; /* Borde del cursor */
+    border-radius: 50%; /* Borde redondeado */
+    position: absolute; /* Posicionamiento absoluto en relación al cuerpo */
+    pointer-events: none; /* Ignora los eventos del cursor */
+    z-index: 10000; /* Prioridad de apilamiento */
+    transform: translate(-50%, -50%); /* Centra el cursor */
+    transition: transform 0.1s ease, opacity 0.1s ease, background-color 0.3s, transform 0.3s; /* Transiciones para efectos visuales */
+    opacity: 0; /* Opacidad inicial */
+}
+
+/* Estilos para el cursor personalizado cuando está en modo de "hover" */
+.custom-cursor.hover {
+    background-color: #cc5e00; /* Cambia el color de fondo al hacer hover */
+    transform: scale(1.5); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilos para el cursor personalizado cuando está activo */
+.custom-cursor.active {
+    background-color: #1900fc; /* Cambia el color de fondo cuando está activo */
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilos para el cursor personalizado en la zona de texto */
+.custom-cursor.text-zone {
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo en la zona de texto */
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+}
+/* Estilos para contenedores de información */
+#info-container, #info-container2 {
+    text-align: center; /* Alinea el texto al centro */
+    margin-bottom: 50px; /* Margen inferior de 50px */
+    padding: 0 20px; /* Añade relleno a los lados para dispositivos más pequeños */
+    display: none; /* Oculta inicialmente los contenedores */
+}
+
+/* Estilos para los encabezados dentro de los contenedores de información */
+.info-container h1 {
+    font-size: 4rem; /* Tamaño de fuente grande */
+    margin-bottom: 1rem; /* Margen inferior de 1rem */
+}
+
+/* Estilos para los párrafos dentro de los contenedores de información */
+.info-container p {
+    width: 50%; /* Ancho del párrafo del 50% */
+    margin: 2rem 0; /* Margen superior e inferior de 2rem */
+    line-height: 1.5; /* Altura de línea del 150% */
+}
+
+/* Estilos para las secciones */
+.info-container section {
+    height: 100vh; /* Altura del 100% del viewport */
+    display: flex; /* Utiliza flexbox para organizar los elementos secundarios */
+    align-items: center; /* Centra verticalmente los elementos secundarios */
+    justify-content: center; /* Centra horizontalmente los elementos secundarios */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+}
+
+/* Estilos para los contenedores generales */
+.container {
+    padding: 5rem; /* Relleno de 5rem */
+    text-align: center; /* Alinea el texto al centro */
+}
+
+/* Estilos para el contenedor principal de una sección con desplazamiento */
+.sticky_parent {
+    height: 500vh; /* Altura del 500% del viewport */
+    background-color: #e0e0e0; /* Color de fondo gris claro */
+}
+
+/* Estilos para el elemento que se mantiene fijo al desplazar la página */
+.sticky {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    position: sticky; /* Fija la posición del elemento */
+    top: 0; /* Coloca el elemento en la parte superior del viewport */
+    height: 100vh; /* Altura del 100% del viewport */
+    background-color: #1b1111; /* Color de fondo negro oscuro */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para resaltar el elemento */
+}
+
+/* Estilos para la sección de desplazamiento */
+.scroll_section {
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Coloca la sección en la parte superior del viewport */
+    height: 100%; /* Altura del 100% del viewport */
+    width: 500vw; /* Ancho del 500% del viewport */
+    display: flex; /* Utiliza flexbox para organizar los elementos secundarios */
+    justify-content: space-between; /* Distribuye los elementos secundarios de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos secundarios */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios de posición */
+}
+
+/* Estilos para los elementos dentro de la sección de desplazamiento */
+.scroll_item {
+    display: flex; /* Utiliza flexbox para organizar los elementos secundarios */
+    align-items: center; /* Centra verticalmente los elementos secundarios */
+    justify-content: center; /* Centra horizontalmente los elementos secundarios */
+    padding: 0 5vw; /* Relleno horizontal de 5% del viewport */
+    margin-top: 200px; /* Margen superior de 200px para ajustar el espacio */
+}
+
+/* Estilos para las imágenes dentro de los elementos de la sección de desplazamiento */
+.scroll_item img {
+    width: 250px; /* Ancho de la imagen */
+    height: 250px; /* Altura de la imagen */
+    object-fit: cover; /* Escala la imagen para cubrir el contenedor */
+    object-position: center; /* Posición central de la imagen */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios */
+}
+
+/* Estilos para los párrafos dentro de los elementos de la sección de desplazamiento */
+.scroll_item p {
+    margin-right: 320px !important; /* Margen derecho de 320px */
+    margin-left: 180px !important; /* Margen izquierdo de 180px */
+    text-align: justify !important; /* Alineación justificada */
+    font-size: 18px !important; /* Tamaño de fuente de 18px */
+    padding: 0; /* Sin relleno */
+    width: 350px !important; /* Ancho máximo del texto */
+    color: white; /* Color del texto blanco */
+}
+
+
+/* Estilos para la primera sección con desplazamiento */
+
+/* Contenedor principal de la primera sección */
+.sticky_parent2 {
+    height: 500vh; /* Altura del contenedor: 500 veces la altura del viewport */
+    background-color: #e0e0e0; /* Color de fondo gris claro */
+}
+
+/* Elemento fijo en la primera sección */
+.sticky2 {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    position: sticky; /* Fija la posición del elemento */
+    top: 0; /* Fija el elemento en la parte superior del viewport */
+    height: 100vh; /* Altura del elemento igual a la altura del viewport */
+    background-color: #1b1111; /* Color de fondo negro */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para resaltar el elemento */
+}
+
+/* Sección de desplazamiento de la primera sección */
+.scroll_section2 {
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Coloca la sección en la parte superior del viewport */
+    height: 100%; /* Altura igual al 100% del viewport */
+    width: 500vw; /* Ancho igual a 500 veces el ancho del viewport */
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios */
+}
+
+/* Elementos dentro de la sección de desplazamiento de la primera sección */
+.scroll_item2 {
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    padding: 0 5vw; /* Relleno de 0 en los lados y 5% del viewport */
+    margin-top: 200px; /* Margen superior para ajustar */
+}
+
+/* Imágenes dentro de los elementos de la primera sección */
+.scroll_item2 img {
+    width: 250px; /* Ancho de la imagen */
+    height: 250px; /* Altura de la imagen */
+    object-fit: cover; /* Escala la imagen para cubrir el contenedor */
+    object-position: center; /* Posición central de la imagen */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios */
+}
+
+/* Texto dentro de los elementos de la primera sección */
+.scroll_item2 p {
+    margin-right: 28px !important; /* Margen derecho */
+    margin-left: 180px !important; /* Margen izquierdo */
+    text-align: justify !important; /* Alineación justificada */
+    font-size: 18px !important; /* Tamaño de fuente */
+    padding: 0; /* Sin relleno */
+    width: 350px !important; /* Ancho máximo del texto */
+    color: white; /* Color del texto */
+}
+
+/* Estilos para la segunda sección con desplazamiento */
+
+/* Contenedor principal de la segunda sección */
+.sticky_parent3 {
+    height: 500vh; /* Altura del contenedor: 500 veces la altura del viewport */
+    background-color: #e0e0e0; /* Color de fondo gris claro */
+}
+
+/* Elemento fijo en la segunda sección */
+.sticky3 {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    position: sticky; /* Fija la posición del elemento */
+    top: 0; /* Fija el elemento en la parte superior del viewport */
+    height: 100vh; /* Altura del elemento igual a la altura del viewport */
+    background-color: #1b1111; /* Color de fondo negro */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para resaltar el elemento */
+}
+
+/* Sección de desplazamiento de la segunda sección */
+.scroll_section3 {
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Coloca la sección en la parte superior del viewport */
+    height: 100%; /* Altura igual al 100% del viewport */
+    width: 500vw; /* Ancho igual a 500 veces el ancho del viewport */
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios */
+}
+
+/* Elementos dentro de la sección de desplazamiento de la segunda sección */
+.scroll_item3 {
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    padding: 0 5vw; /* Relleno de 0 en los lados y 5% del viewport */
+    margin-top: 200px; /* Margen superior para ajustar */
+}
+
+/* Imágenes dentro de los elementos de la segunda sección */
+.scroll_item3 img {
+    width: 250px; /* Ancho de la imagen */
+    height: 250px; /* Altura de la imagen */
+    object-fit: cover; /* Escala la imagen para cubrir el contenedor */
+    object-position: center; /* Posición central de la imagen */
+    transition: transform 0.3s ease-out; /* Transición suave para cambios */
+}
+
+/* Texto dentro de los elementos de la segunda sección */
+.scroll_item3 p {
+    margin-right: 28px !important; /* Margen derecho */
+    margin-left: 180px !important; /* Margen izquierdo */
+    text-align: justify !important; /* Alineación justificada */
+    font-size: 18px !important; /* Tamaño de fuente */
+    padding: 0; /* Sin relleno */
+    width: 350px !important; /* Ancho máximo del texto */
+    color: white; /* Color del texto */
+}
+
+
+/* Definición de la animación 'fadeInUp' */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Opacidad inicial */
+        transform: translateY(20px); /* Desplazamiento hacia arriba */
+    }
+    to {
+        opacity: 1; /* Opacidad final */
+        transform: translateY(0); /* Sin desplazamiento */
+    }
+}
+
+/* Estilos para el contenedor de datos */
+.fondodatos {
+    z-index: 9; /* Índice z para superposición */
+    height: fit-content; /* Altura ajustada al contenido */
+    width: 100%; /* Ancho completo */
+    background-color: #000; /* Color de fondo negro */
+    padding: 15px; /* Relleno interno */
+    margin: 10px 0; /* Margen superior e inferior */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transiciones */
+}
+
+/* Efecto hover para el contenedor de datos */
+.fondodatos:hover {
+    transform: translateY(-10px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* Estilos para el título del contenedor de datos */
+.fondodatos h2 {
+    color: #ff7b00; /* Color del texto */
+    font-family: 'Arial', sans-serif; /* Fuente */
+    font-size: 1.5em; /* Tamaño de fuente */
+    margin: 0; /* Elimina el margen */
+    text-align: left; /* Alineación del texto a la izquierda */
+    transition: color 0.3s ease-in-out; /* Transición del color */
+}
+
+/* Efecto hover para el título del contenedor de datos */
+.fondodatos h2:hover {
+    color: #ff7b00; /* Color del texto al hacer hover */
+}
+
+/* Estilos para los detalles del contenedor de datos */
+.detalle {
+    font-family: 'Arial', sans-serif; /* Fuente */
+    font-size: 1.2em; /* Tamaño de fuente */
+    color: #333; /* Color del texto */
+    margin: 5px 0 15px 0; /* Margen */
+    padding: 5px 15px; /* Relleno interno */
+    background: #ffffff; /* Color de fondo */
+    border-left: 4px solid #ff7b00; /* Borde izquierdo */
+    border-radius: 0 8px 8px 0; /* Bordes redondeados */
+    transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Transiciones */
+}
+
+/* Efecto hover para los detalles del contenedor de datos */
+.detalle:hover {
+    background: #000000; /* Color de fondo al hacer hover */
+    border-color: #ff7b00; /* Color del borde al hacer hover */
+    color: #ffffff; /* Color del texto al hacer hover */
+}
+
+/* Aplicación de la animación 'fadeInUp' a .fondodatos y .detalle */
+.fondodatos,
+.detalle {
+    animation: fadeInUp 0.5s ease-in-out both; /* Animación fadeInUp */
+}
+
+/* Estilos para el contenedor de iconos */
+.containerIcon {
+    text-align: center; /* Alineación del texto al centro */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+/* Estilos para las imágenes dentro del contenedor de iconos */
+.containerIcon img {
+    vertical-align: middle; /* Alineación vertical */
+}
+
+/* Estilos para los párrafos ocultos */
+.hiddenP {
+    opacity: 0; /* Opacidad inicial */
+    transform: translateY(20px); /* Desplazamiento hacia abajo */
+}
+
+/* Estilos para los párrafos en movimiento */
+.moveP {
+    opacity: 1; /* Opacidad final */
+    transform: translateY(0); /* Sin desplazamiento */
+}
+
+/* Estilos para el recuento de estudiantes y graduados */
+#studentCount, #graduateCount {
+    font-family: 'Arial', sans-serif; /* Fuente */
+    font-size: 2em; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    margin: 5px 0 15px 0; /* Margen */
+    padding: 10px 20px; /* Relleno */
+    background: linear-gradient(135deg, #ff7300 0%, #ff9c00 100%); /* Fondo con degradado */
+    border: 4px solid #ff7300; /* Borde sólido */
+    border-radius: 50px; /* Bordes redondeados */
+    text-align: center; /* Alineación del texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    animation: fadeInUp 0.5s ease-in-out both; /* Animación de entrada */
+}
+
+/* Estilos para el recuento de estudiantes y graduados en la carrera de Telemática */
+#studentCountTelematica, #graduateCountTelematica {
+    /* Mismos estilos que studentCount y #graduateCount */
+}
+
+/* Estilos para los párrafos dentro de los contenedores de información */
+#info-container p,
+#info-container2 p {
+    text-align: center; /* Alineación del texto al centro */
+    color: white; /* Color del texto */
+    font-size: 28px; /* Tamaño de fuente */
+    margin-right: 10px; /* Margen derecho */
+}
+
+/* Estilos para los elementos de lista dentro de los contenedores de información */
+#info-container li,
+#info-container2 li {
+    text-align: justify; /* Alineación justificada */
+    color: white; /* Color del texto */
+    font-size: 20px; /* Tamaño de fuente */
+    margin-bottom: 10px; /* Margen inferior */
+    margin-right: 10px; /* Margen derecho */
+}
+
+/* Estilos para elementos <strong> */
+strong {
+    color: #cc5e00; /* Color del texto */
+}
+
+/* Estilos para elementos <h2> */
+h2 {
+    color: blue; /* Color del texto */
+    font-size: 40px; /* Tamaño de fuente */
+    text-align: center; /* Alineación del texto */
+}
+
+/* Estilos para elementos <p> */
+p {
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para el contenedor de iconos */
+.containerIcon {
+    text-align: center; /* Alineación del texto al centro */
+}
+
+
+/* Estilos para el título */
+.titulo {
+    font-size: 3rem; /* Tamaño de fuente */
+    color: white; /* Color del texto */
+    text-align: center; /* Alineación del texto al centro */
+    margin-bottom: 12px; /* Margen inferior */
+    position: relative; /* Posición relativa */
+    z-index: 1; /* Índice z */
+    opacity: 0; /* Opacidad inicial */
+    animation: fadeIn 1s ease-in-out forwards, pulsate 2s infinite alternate; /* Animaciones */
+    background-image: linear-gradient(120deg, #ff6600 0%, #0011ff 100%); /* Imagen de fondo con degradado */
+    padding: 20px; /* Relleno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+/* Animación para aparecer */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación de pulso */
+@keyframes pulsate {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Contenedor de las tarjetas */
+.containerCard {
+    display: flex; /* Utiliza flexbox para organizar las tarjetas */
+    flex-wrap: wrap; /* Envuelve las tarjetas si no caben en una línea */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+    margin: 1.5rem; /* Margen exterior */
+}
+
+/* Estilos para las tarjetas */
+.card {
+    position: relative; /* Posición relativa */
+    margin-bottom: 50px; /* Margen inferior */
+    width: 290px; /* Ancho de la tarjeta */
+    background-color: black; /* Color de fondo */
+    border-radius: 1rem 1rem 11rem 11rem; /* Bordes redondeados */
+    padding: 2.5rem 1.5rem 3.5rem; /* Relleno */
+    text-align: center; /* Alineación del texto al centro */
+    box-shadow: 0 8px 32px hsla(178, 55%, 20%, 0.15); /* Sombra */
+    animation: pulse 2s infinite alternate; /* Animación de pulso */
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Estilos para la imagen de la tarjeta */
+.card__img {
+    width: 90px; /* Ancho de la imagen */
+}
+
+/* Estilos para el borde de la tarjeta */
+.card__border {
+    width: 124px; /* Ancho del borde */
+    height: 124px; /* Altura del borde */
+    background-color: rgb(255, 102, 0); /* Color de fondo */
+    border-radius: 50%; /* Bordes redondeados */
+    margin: 0 auto 1rem; /* Margen */
+    display: grid; /* Utiliza grid para centrar contenido */
+    place-items: center; /* Centra el contenido */
+}
+
+/* Estilos para la imagen de perfil */
+.card__perfil {
+    width: 104px; /* Ancho de la imagen de perfil */
+    height: 104px; /* Altura de la imagen de perfil */
+    background-color: rgb(0, 17, 255); /* Color de fondo */
+    border-radius: 50%; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que desborda */
+    display: flex; /* Utiliza flexbox para organizar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: flex-end; /* Alinea verticalmente el contenido hacia abajo */
+}
+
+/* Estilos para el nombre */
+.card__name, .card__profession {
+    color: white; /* Color del texto */
+}
+
+/* Estilos para el nombre */
+.card__name {
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: 600; /* Grosor de la fuente */
+    margin-bottom: 0.25rem; /* Margen inferior */
+}
+
+/* Estilos para la profesión */
+.card__profession {
+    font-size: 0.75rem; /* Tamaño de fuente */
+    color: rgb(38, 0, 255); /* Color del texto */
+    font-weight: bold; /* Grosor de la fuente */
+}
+
+.info {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 320px; /* Ajusta esta altura según tus necesidades */
+    overflow: hidden; /* Esconde el contenido que no quepa */
+    background-color: rgb(255, 255, 255);
+    padding: 2.5rem 1.5rem 3.3rem;
+    border-radius: 1rem 1rem 11rem 11rem;
+    clip-path: circle(16px at 250px 40px);
+    transition: clip-path 0.4s ease-in-out;
+}
+.info__icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: black;
+    display: inline-flex;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.info__img {
+    width: 45px;
+}
+.info__border {
+    width: 64px;
+    height: 64px;
+    background-color: o;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    background-color: rgb(255, 102, 0);
+    display: grid;
+    place-items: center;
+    transform: translateX(-3rem);
+    transition: transform 0.8s;
+}
+.info__perfil {
+    width: 52px;
+    height: 52px;
+    background-color: rgb(38, 0, 255);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.info__data {
+    display: grid;
+    row-gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    transform: translateX(-4rem);
+    transition: transform 1s;
+}
+.info__name {
+    font-size: 1rem;
+    color: rgb(255, 102, 0);
+    font-weight: bold;
+}
+.info__profession, .info__location {
+    font-size: 0.75rem;
+}
+.info__profession{
+    color: rgb(38, 0, 255);
+    font-weight: bold;
+}
+.info__social {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+    transform: translateX(-5rem);
+    transition: transform 1.2s;
+}
+.info__social-link {
+    width: 32px;
+    height: 32px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s;
+}
+.info__social-link:hover {
+    transform: translateY(-0.25rem);
+    cursor: none;
+}
+.info__social-icon {
+    display: inline-flex;
+    background-color: rgb(255, 102, 0);
+    padding: 0.25rem;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+}
+
+.info:hover {
+    cursor: none;
+    clip-path: circle(75%);
+}
+.info:hover .info__icon {
+    cursor: none;
+    opacity: 0;
+}
+.info:hover .info__border, .info:hover .info__data, .info:hover .info__social {
+    cursor: none;
+    transform: translateX(0);
+}
+
+
+
+.hero-nav h1:last-child {
+    margin-top: -20px; /* Ajusta este valor según lo necesites */
+}
+
+/* Cuando el cursor está sobre la imagen */
+.materia:hover {
+    /* Establece la sombra */
+    box-shadow: 0px 0px 10px rgb(248, 149, 1);
+    /* Ajusta la altura */
+    
+}
+
+.materia {
+    border-radius: 15px; /* Bordes redondeados para un aspecto más suave */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar la imagen */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Transición suave */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    animation: pulseAnimation 2s infinite alternate; /* Animación de pulsación */
+    z-index: -10;
+}
+
+.materia:hover {
+    animation: none;
+    opacity: 0.8; /* Reducimos la opacidad al hacer hover */
+    transform: translateY(-10px); /* Movemos hacia arriba al hacer hover */
+    filter: brightness(90%); /* Reducimos ligeramente el brillo */
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: translateY(0); /* Sin desplazamiento al inicio */
+    }
+    50% {
+        transform: translateY(-10px); /* Desplazamiento hacia arriba a la mitad de la animación */
+    }
+    100% {
+        transform: translateY(0); /* Sin desplazamiento al final */
+    }
+}
+
+@keyframes pulseAnimation {
+    from {
+        transform: scale(1); /* Escala normal al inicio */
+    }
+    to {
+        transform: scale(1.05); /* Escala ligeramente más grande */
+    }
+}
+
+
+//* Inicia el carrusel */
+.carousel {
+    margin-left: 15px; /* Reducir el margen izquierdo */
+    margin-right: 15px;
+}
+
+/* Estilos para la lista de diapositivas */
+ul.slides {
+    display: block;
+    position: relative;
+    height: 600px;
+    width: 1260px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+}
+
+/* Estilos para los elementos dentro de las diapositivas */
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Ocultar los inputs dentro de la lista de diapositivas */
+ul.slides input {
+    display: none; 
+}
+
+/* Contenedor de las diapositivas */
+.slide-container { 
+    display: block; 
+}
+
+/* Imagen de la diapositiva */
+.slide-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0;
+    transition: all .7s ease-in-out;
+}   
+
+/* Estilos para las imágenes dentro de las diapositivas */
+.slide-image img {
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+}
+
+/* Controles del carrusel */
+.carousel-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    font-size: 100px;
+    line-height: 600px;
+    color: #fff;
+}
+
+/* Estilos para las etiquetas de los controles */
+.carousel-controls label {
+    display: none;
+    position: absolute;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+/* Opacidad de las etiquetas al hacer hover sobre la imagen */
+.slide-image:hover + .carousel-controls label{
+    opacity: 0.5;
+}
+
+/* Estilos al hacer hover sobre las etiquetas de los controles */
+.carousel-controls label:hover {
+    opacity: 1;
+}
+
+/* Controles para la diapositiva anterior */
+.carousel-controls .prev-slide {
+    width: 10px;
+    text-align: left;
+    left: 0;
+}
+
+/* Controles para la diapositiva siguiente */
+.carousel-controls .next-slide {
+    width: 10px;
+    text-align: right;
+    right: 0;
+}
+
+/* Indicadores de puntos para el carrusel */
+.carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 999;
+    text-align: center;
+}
+
+/* Estilos para los puntos del carrusel */
+.carousel-dots .carousel-dot {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    margin: 10px;
+}
+
+/* Cuando un input está marcado, muestra la imagen de la diapositiva correspondiente */
+input:checked + .slide-container .slide-image {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+/* Cuando un input está marcado, muestra los controles del carrusel */
+input:checked + .slide-container .carousel-controls label {
+    display: block; 
+}
+
+/* Muestra los puntos correspondientes a la imagen activa */
+input#img-1:checked ~ .carousel-dots label#img-dot-1,
+input#img-2:checked ~ .carousel-dots label#img-dot-2,
+input#img-3:checked ~ .carousel-dots label#img-dot-3,
+input#img-4:checked ~ .carousel-dots label#img-dot-4,
+input#img-5:checked ~ .carousel-dots label#img-dot-5,
+input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+	opacity: 1;
+}
+
+/* Cuando un input está marcado, muestra los botones de navegación */
+input:checked + .slide-container .nav label { 
+    display: block; 
+}
+
+/* Animación para ocultar elementos */
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 4s cubic-bezier(0.25, 0.1, 0.25, 1); /* Duración de 2 segundos y función de temporización más suave */
+}
+
+/* Animación para ocultar imágenes */
+.hiddenImg {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Duración de 2 segundos y función de temporización más suave */
+}
+
+/* Animación para mostrar elementos */
+.move {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Asegúrate de que la transición coincida */
+    position: relative;
+    margin: auto; /* Ajusta el margen superior para dejar espacio para el encabezado */
+    z-index: -10;
+}
+
+/* Animación de parpadeo */
+@keyframes blink {
+    0% { filter: drop-shadow(5px 5px 5px rgb(255, 115, 0)); }
+    50% { filter: drop-shadow(8px 8px 8px rgb(0, 0, 0)); }
+    100% { filter: drop-shadow(5px 5px 5px rgb(255, 115, 0)); }
+}
+
+.plan-de-estudios {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Asegúrate de que la transición coincida */
+    width: 750px;
+    height: auto;
+    position: relative;
+    margin: auto; /* Ajusta el margen superior para dejar espacio para el encabezado */
+    z-index: -10;
+    filter: drop-shadow(5px 5px 5px rgb(255, 115, 0)) drop-shadow(8px 8px 8px rgb(0, 0, 0)); /* Ajusta los valores según sea necesario */
+    animation: blink 1.5s infinite; /* Ajusta la duración según sea necesario */
+}
+
+
+.plan-de-estudios2 {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Asegúrate de que la transición coincida */
+    width: 750px;
+    height: auto;
+    position: relative;
+    margin: auto; /* Ajusta el margen superior para dejar espacio para el encabezado */
+    z-index: -10;
+    filter: drop-shadow(5px 5px 5px rgb(255, 115, 0)) drop-shadow(8px 8px 8px rgb(0, 0, 0)); /* Ajusta los valores según sea necesario */
+    animation: blink 1.5s infinite; /* Ajusta la duración según sea necesario */
+}
+
+
+/* Animación de entrada de las diapositivas */
+@keyframes slideIn {
+    0% {
+        left: -250px; /* Mueve la imagen fuera de la pantalla hacia la izquierda */
+        opacity: 0; /* Comienza con opacidad 0 */
+    }
+    100% {
+        left: calc(50% - 655px); /* Lleva la imagen al centro de la pantalla */
+        opacity: 2;
+    }
+}
+
+/* Animación para ocultar elementos con desplazamiento vertical */
+.hidden2, .hidden3 {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Animación para mostrar elementos con desplazamiento vertical */
+.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+    transition: all 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Animación para ocultar texto */
+.text-hidden, .text-hidden2, .text-hidden10 {
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    transition: all 1.5s;
+}
+
+/* Animación para mostrar texto */
+.text-visible {
+    opacity: 1;
+    white-space: normal;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+    width: 100%;
+}
+
+/* Animación de escritura */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Animación de parpadeo del cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+
+/* Inicia Imagen Logo UPSLP */
+.container {
+    position: relative;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    margin-left: 635px; /* Ajustar el margen izquierdo */
+    margin-top: -80px;
+    z-index: 10;
+}
+
+.container .box {
+    position: relative;
+    width: 180px;
+    height: 115px;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.container:hover .box {
+    transform: rotateY(-45deg);
+}
+
+.container .box:hover ~ .box {
+    transform: rotateY(45deg);
+}
+
+.container .box:hover {
+    transform: rotateY(0deg) scale(1.25);
+    z-index: 1;
+    margin: 10px;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+
+.container .box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container .box .imgBx:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, blue, orange);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+    mix-blend-mode: multiply;
+    font-size: 40px;
+}
+
+.container .box:hover .imgBx:before {
+    opacity: 1;
+}
+
+.container .box .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 120px;
+    object-fit: fill;
+}
+
+.container .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.container .box .content h2 {
+    color: #fff;
+    transition: 0.5s;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 12px;
+    transform: translateY(200px);
+    transition-delay: 0.3s;
+}
+
+.container .box:hover .content h2 {
+    transform: translateY(0px);
+}
+
+.container .box .content p {
+    color: #fff;
+    transition: 0.5s;
+    font-size: 10px;
+    transform: translateY(200px);
+    transition-delay: 0.4s;
+}
+
+.container .box:hover .content p {
+    transform: translateY(0px);
+}
+/* Termina Imagen Logo UPSLP */
+
+
+/* Inicia Imagen Logo Equipo */
+.container2 {
+    position: relative;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    margin-left: 835px; /* Ajustar el margen izquierdo */
+    margin-top: -440px;
+}
+
+.container2 .box {
+    position: relative;
+    width: 180px;
+    height: 115px;
+    background: #000;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.container2:hover .box {
+    transform: rotateY(-45deg);
+}
+
+.container2 .box:hover ~ .box {
+    transform: rotateY(45deg);
+}
+
+.container2 .box:hover {
+    transform: rotateY(0deg) scale(1.25);
+    z-index: 1;
+    margin: 10px;
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+}
+
+.container2 .box .imgBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container2 .box .imgBx:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #f00, #000);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+    mix-blend-mode: multiply;
+}
+
+.container2 .box:hover .imgBx:before {
+    opacity: 1;
+}
+
+.container2 .box .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 120px;
+    object-fit: fill;
+}
+
+.container2 .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 20px;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.container2 .box .content h2 {
+    color: #fff;
+    transition: 0.5s;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 12px;
+    transform: translateY(200px);
+    transition-delay: 0.3s;
+}
+
+.container2 .box:hover .content h2 {
+    transform: translateY(0px);
+}
+
+.container2 .box .content p {
+    color: #fff;
+    transition: 0.5s;
+    font-size: 10px;
+    transform: translateY(200px);
+    transition-delay: 0.4s;
+}
+
+.container2 .box:hover .content p {
+    transform: translateY(0px);
+}
+/* Termina Imagen Logo Equipo */
+
+
+
+/* Establece un color de fondo para la mitad derecha de la pantalla */
+.half-color {
+    z-index: -1; /* Coloca el elemento detrás de otros elementos */
+    position: absolute; /* Posiciona el elemento de forma absoluta */
+    top: 0; /* Alinea el elemento en la parte superior */
+    right: 0; /* Alinea el elemento a la derecha */
+    width: 50%; /* Establece el ancho del elemento como la mitad de la pantalla */
+    height: 100%; /* Establece la altura del elemento como la altura completa de la pantalla */
+    background-color: rgb(255, 125, 0); /* Color de fondo */
+    transition: background-color 0.5s ease-in-out, height 1s ease-in-out; /* Transiciones suaves para el color de fondo y la altura */
+}
+
+/* Configuración del texto con fondo de imagen */
+.fondo {
+    font-size: 8vw; /* Tamaño de fuente relativo al ancho de la pantalla */
+    font-weight: bold; /* Establece el peso de la fuente como negrita */
+    color: transparent; /* Hace que el color del texto sea transparente */
+    -webkit-text-fill-color: transparent; /* Rellena el texto con color transparente */
+    background: url('fachadaUPSLP.jpg') no-repeat; /* Establece una imagen de fondo sin repetición */
+    background-size: cover; /* La imagen de fondo se ajusta al tamaño del contenedor */
+    -webkit-background-clip: text; /* Hace que el fondo solo sea visible donde está el texto */
+    margin: 0; /* Elimina los márgenes */
+    padding: 0; /* Elimina el relleno */
+    margin-top: 102px; /* Margen superior ajustado */
+    text-align: center; /* Alineación del texto al centro */
+    line-height: 1; /* Altura de línea igual a 1 */
+    top: 0; /* Alinea el elemento en la parte superior */
+    display: block; /* Muestra el elemento como bloque */
+    transition: height; /* Transición en la altura */
+}
+
+/* Configuración del texto con color sólido */
+.fondo2 {
+    position: absolute; /* Posiciona el elemento de forma absoluta */
+    font-size: 8vw; /* Tamaño de fuente relativo al ancho de la pantalla */
+    justify-content: center; /* Alinea el contenido al centro horizontalmente */
+    font-weight: bold; /* Establece el peso de la fuente como negrita */
+    color: #cc5e00; /* Color del texto */
+    margin-top: 95px; /* Margen superior ajustado */
+    margin-left: 20px; /* Margen izquierdo ajustado */
+    display: block; /* Muestra el elemento como bloque */
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+    opacity: 0; /* Hace que el elemento sea completamente transparente */
+    visibility: hidden; /* Oculta el elemento */
+}
+
+/* Configuración del fondo del héroe */
+.hero-background {
+    z-index: 2; /* Coloca el elemento sobre otros elementos */
+    position: absolute; /* Posiciona el elemento de forma absoluta */
+    top: 0; /* Alinea el elemento en la parte superior */
+    left: 0; /* Alinea el elemento a la izquierda */
+    width: 100%; /* Establece el ancho del elemento como el ancho completo de la pantalla */
+    height: 100%; /* Establece la altura del elemento como la altura completa de la pantalla */
+    background-image: url(fachada2.jpg); /* Establece una imagen de fondo */
+    background-size: cover; /* La imagen de fondo se ajusta al tamaño del contenedor */
+    background-position: center; /* La imagen de fondo se posiciona en el centro */
+    box-shadow: inset 0 0 50px rgb(0, 0, 0); /* Sombra interna para dar profundidad */
+    opacity: 1; /* Opacidad completa */
+}
+
+/* Configuración de la navegación del héroe */
+.hero-nav {
+    position: relative; /* Posiciona el elemento de forma relativa */
+    display: grid; /* Usa una disposición de cuadrícula */
+    text-align: center; /* Alinea el texto al centro */
+    justify-content: center; /* Alinea el contenido al centro horizontalmente */
+    align-items: center; /* Alinea el contenido al centro verticalmente */
+    height: 600px; /* Altura del área de navegación del héroe */
+    background-color: transparent; /* Color de fondo transparente */
+    color: rgb(0, 26, 255); /* Color del texto */
+    transition: background-color 0.5s ease-in-out, height 1s ease-in-out; /* Transiciones suaves para el color de fondo y la altura */
+}
+
+/* Clase de navegación fija */
+.hero-nav.fixed {
+    z-index: 2; /* Coloca el elemento sobre otros elementos */
+    position: fixed; /* Posiciona el elemento de forma fija */
+    top: 0; /* Alinea el elemento en la parte superior */
+    width: 100%; /* Establece el ancho del elemento como el ancho completo de la pantalla */
+    background-color: rgb(255, 125, 0); /* Color de fondo */
+    height: 145px; /* Altura de la navegación fija */
+}
+
+/* Configuración para el texto secundario */
+.fondo h2 {
+    z-index: 8; /* Coloca el elemento sobre otros elementos */
+}
+
+/* Contenido de la página */
+.page-content {
+    margin-bottom: 80px; /* Margen inferior ajustado */
+    padding-top: 700px; /* Ajuste del espacio para el encabezado fijo */
+}
+
+
+/* Estilos para el párrafo */
+p {
+    margin: 0; /* Elimina el margen del párrafo */
+}
+
+/* Estilos para el toggle de la hamburguesa */
+#burger-toggle {
+    position: absolute; /* Posiciona de forma absoluta */
+    appearance: none; /* Elimina los estilos de apariencia por defecto */
+    opacity: 0; /* Oculta el toggle */
+}
+
+/* Estilos para el menú cuando el toggle está activado */
+#burger-toggle:checked ~ .menu {
+    opacity: 1; /* Hace visible el menú */
+    visibility: visible; /* Hace visible el menú */
+}
+
+/* Transiciones para elementos dentro del menú cuando el toggle está activado */
+#burger-toggle:checked ~ .menu .menu-nav-link span div, 
+#burger-toggle:checked ~ .menu img, 
+#burger-toggle:checked ~ .menu .title p {
+    transform: translateY(0); /* Aplica una transformación para hacer visible el elemento */
+    transition: 1.2s 0.1s cubic-bezier(0.35, 0, 0.07, 1); /* Transición suave */
+}
+
+/* Retraso de transición para las imágenes dentro del menú */
+#burger-toggle:checked ~ .menu .image-link:nth-child(1) img {
+    transition-delay: 0.18s; /* Retraso de transición para la primera imagen */
+}
+
+/* Estilos para la línea del toggle de la hamburguesa */
+#burger-toggle:checked ~ .burger-menu .line::after {
+    transform: translateX(0); /* Muestra la línea de la hamburguesa */
+}
+
+/* Cambios en la apariencia de las líneas del toggle cuando está activado */
+#burger-toggle:checked ~ .burger-menu .line:nth-child(1) {
+    transform: translateY(calc(var(--burger-menu-radius) / 5)) rotate(45deg); /* Gira la primera línea */
+}
+
+#burger-toggle:checked ~ .burger-menu .line:nth-child(2) {
+    transform: scaleX(0); /* Oculta la segunda línea */
+}
+
+#burger-toggle:checked ~ .burger-menu .line:nth-child(3) {
+    transform: translateY(calc(var(--burger-menu-radius) / -5)) rotate(-45deg); /* Gira la tercera línea */
+}
+
+/* Estilos para el menú de hamburguesa */
+.burger-menu {
+    --burger-menu-radius: 4em; /* Define el radio del menú */
+    background-color: rgb(0, 89, 255); /* Color de fondo del menú */
+    position: fixed; /* Posiciona el menú de forma fija en la pantalla */
+    margin-top: -5px; /* Ajuste del margen superior */
+    top: 5vh; /* Posiciona el menú en la parte superior */
+    left: 5vw; /* Posiciona el menú en la parte izquierda */
+    z-index: 100; /* Z-index del menú */
+    display: block; /* Muestra el menú como bloque */
+    width: var(--burger-menu-radius); /* Ancho del menú */
+    height: var(--burger-menu-radius); /* Alto del menú */
+    outline: none; /* Elimina el contorno */
+    z-index: 30;
+    cursor: none; /* Oculta el cursor */
+}
+
+.burger-menu {
+    display: block; /* Asegura que el botón burger se muestre */
+}
+
+.menu {
+    display: none; /* Oculta el menú por defecto */
+}
+
+#burger-toggle:checked + .menu {
+    display: block; /* Muestra el menú cuando el checkbox está marcado */
+}
+
+/* Estilos para las líneas del toggle de la hamburguesa */
+.burger-menu .line {
+    position: absolute; /* Posiciona las líneas de forma absoluta */
+    left: 25%; /* Posiciona las líneas en el centro horizontal */
+    width: 50%; /* Ancho de las líneas */
+    height: 5px; /* Altura de las líneas */
+    background: rgb(255, 145, 0); /* Color de fondo de las líneas */
+    border-radius: 10px; /* Radio de borde de las líneas */
+    overflow: hidden; /* Oculta el desbordamiento */
+    transition: 0.5s; /* Transición suave */
+}
+
+/* Estilos para las líneas del toggle */
+.burger-menu .line:nth-child(1) {
+    top: 30%; /* Posiciona la primera línea */
+}
+
+.burger-menu .line:nth-child(2) {
+    top: 50%; /* Posiciona la segunda línea */
+}
+
+.burger-menu .line:nth-child(3) {
+    top: 70%; /* Posiciona la tercera línea */
+}
+
+/* Estilos para el efecto de desplazamiento de las líneas */
+.burger-menu .line::after {
+    position: absolute; /* Posiciona el elemento de forma absoluta */
+    content: ""; /* No hay contenido */
+    top: 0; /* Alinea el elemento en la parte superior */
+    left: 0; /* Alinea el elemento en la parte izquierda */
+    width: 100%; /* Ancho del elemento */
+    height: 100%; /* Altura del elemento */
+    background: var(--primary-color-darker); /* Color de fondo */
+    transform: translateX(-100%); /* Desplaza el elemento fuera del menú */
+    transition: 0.25s; /* Transición suave */
+}
+
+/* Retraso de transición para el efecto de desplazamiento de las líneas */
+.burger-menu .line:nth-child(2)::after {
+    transition-delay: 0.1s; /* Retraso de transición para la segunda línea */
+}
+
+.burger-menu .line:nth-child(3)::after {
+    transition-delay: 0.2s; /* Retraso de transición para la tercera línea */
+}
+
+.burger-menu .line:nth-child(4)::after {
+    transition-delay: 0.2s; /* Retraso de transición para la cuarta línea */
+}
+
+/* Efecto hover para mostrar el efecto de desplazamiento de las líneas */
+.burger-menu:hover .line::after {
+    transform: translateX(0); /* Muestra el efecto de desplazamiento */
+}
+
+/* Estilos para el menú */
+.menu {
+    position: fixed; /* Posiciona el menú de forma fija en la pantalla */
+    top: 0; /* Alinea el menú en la parte superior */
+    left: 0; /* Alinea el menú en la parte izquierda */
+    width: 100%; /* Ancho del menú */
+    height: 100%; /* Altura del menú */
+    display: flex; /* Usa una disposición flexible */
+    justify-content: center; /* Alinea el contenido al centro horizontalmente */
+    align-items: center; /* Alinea el contenido al centro verticalmente */
+    background: #1a1e23; /* Color de fondo del menú */
+    opacity: 0; /* Oculta el menú */
+    visibility: hidden; /* Oculta el menú */
+    transition: 0.3s;
+    z-index: 20;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+
+/* Estilos para la navegación del menú */
+.menu-nav {
+    display: flex; /* Usa una disposición flexible para los elementos de navegación */
+    flex-wrap: wrap; /* Permite que los elementos de navegación se envuelvan en varias líneas si es necesario */
+    margin: 0; /* Elimina el margen exterior */
+    padding: 0; /* Elimina el relleno interior */
+    text-align: center; /* Centra el texto dentro de la navegación */
+    list-style-type: none; /* Elimina los estilos de viñetas de la lista */
+}
+
+/* Estilos para cada elemento de la navegación */
+.menu-nav-item {
+    flex: 1; /* Hace que los elementos ocupen el mismo ancho dentro del contenedor */
+    margin: 20px; /* Agrega un margen entre los elementos de navegación */
+    cursor: none; /* Oculta el cursor */
+}
+
+/* Estilos para el enlace de navegación */
+.menu-nav-link {
+    cursor: none; /* Oculta el cursor */
+    position: relative; /* Establece la posición relativa para los enlaces */
+    display: inline-flex; /* Muestra los enlaces como una fila en línea */
+    font-size: 2rem; /* Tamaño de fuente */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina la decoración del texto */
+}
+
+/* Estilos para el texto dentro del enlace de navegación */
+.menu-nav-link span {
+    overflow: hidden; /* Oculta el desbordamiento del texto */
+}
+
+/* Estilos para la línea de resaltado debajo del enlace de navegación */
+.menu-nav-link::after {
+    position: absolute; /* Posiciona el elemento absolutamente */
+    content: ""; /* No hay contenido */
+    top: 100%; /* Alinea el elemento en la parte inferior del enlace */
+    left: 0; /* Alinea el elemento a la izquierda del enlace */
+    width: 100%; /* Ancho del elemento */
+    height: 3px; /* Altura del elemento */
+    background: var(--primary-color); /* Color de fondo del elemento */
+    transform: scaleX(0); /* Oculta inicialmente la línea */
+    transform-origin: right; /* Establece el origen de la transformación */
+    transition: transform 0.5s; /* Transición suave */
+}
+
+/* Efecto de resaltado al pasar el cursor sobre el enlace de navegación */
+.menu-nav-link:hover::after {
+    transform: scaleX(1); /* Muestra la línea con la anchura completa */
+    transform-origin: left; /* Establece el origen de la transformación */
+}
+
+/* Estilos para la galería de imágenes */
+.menu .gallery {
+    margin-top: 60px; /* Margen superior para la galería */
+    text-align: center; /* Centra el contenido de la galería */
+}
+
+/* Estilos para el título de la galería */
+.menu .title {
+    font-size: 24px; /* Tamaño de fuente del título */
+    color: white; /* Color del texto */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+/* Estilos para el párrafo dentro del título */
+.menu .title p {
+    font-size: 12px; /* Tamaño de fuente del párrafo */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    transform: translateY(102%); /* Mueve el párrafo fuera del contenedor */
+}
+
+/* Estilos para la galería de imágenes */
+.menu .images {
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    margin-top: 36px; /* Margen superior para la galería */
+    display: flex; /* Muestra las imágenes como una fila */
+    flex-wrap: wrap; /* Permite que las imágenes se envuelvan en varias líneas si es necesario */
+}
+
+/* Estilos para cada enlace de imagen */
+.menu .images .image-link {
+    cursor: none; /* Oculta el cursor */
+    width: 15vw; /* Ancho de cada enlace de imagen */
+    margin: 0 12px; /* Margen entre los enlaces de imagen */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+/* Estilos para la imagen dentro de cada enlace de imagen */
+.menu .images .image-link .image {
+    position: relative; /* Establece la posición relativa para la imagen */
+    transition: 0.6s; /* Transición suave */
+}
+
+/* Estilos para el texto superpuesto en las imágenes */
+.menu .images .image-link .image::before {
+    position: absolute; /* Posiciona el texto absolutamente */
+    content: attr(data-label); /* Utiliza el atributo data-label como contenido */
+    top: 0; /* Alinea el texto en la parte superior */
+    left: 0; /* Alinea el texto a la izquierda */
+    z-index: 1; /* Establece el índice z del texto */
+    display: flex; /* Muestra el texto como un contenedor flexible */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    width: 100%; /* Ancho del texto */
+    height: 100%; /* Altura del texto */
+    color: white; /* Color del texto */
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    opacity: 0; /* Oculta inicialmente el texto */
+    transition: 0.4s; /* Transición suave */
+}
+
+/* Efecto de escala al pasar el cursor sobre el enlace de imagen */
+.menu .images .image-link:hover .image {
+    transform: scale(1.2); /* Escala la imagen al 120% de su tamaño original */
+}
+
+/* Efecto de superposición al pasar el cursor sobre el enlace de imagen */
+.menu .images .image-link:hover .image::before {
+    opacity: 1; /* Muestra el texto superpuesto */
+}
+
+/* Estilos para las imágenes dentro de la galería */
+.menu .images img {
+    height: 250px; /* Altura de las imágenes */
+    transform: translateY(102%);
+}
+
+/* Empieza el footer */
+
+
+.footer{
+    background-color: #050718;
+    margin-top: -20px;
+}
+
+#contact {
+    width: 100%;
+    height: 100%;
+    }
+    
+    
+    .contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    max-width: 840px;
+    }
+    
+    /* Left contact page */
+    .form-horizontal {
+    /*float: left;*/
+    max-width: 400px;
+    font-family: 'Lato';
+    font-weight: 400;
+    }
+    
+    .form-control, 
+    textarea {
+        cursor: none;
+        width: 400px;
+        margin-bottom: 10px;
+        background-color: #1a1a1a; /* Un gris oscuro en lugar de negro puro para menor contraste */
+        color: #ff7b00;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        letter-spacing: 1px;
+        padding: 10px; /* Espacio interior */
+        border: 1px solid #ff7b00; /* Borde del mismo color que el texto */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+        transition: background-color 0.3s, border-color 0.3s; /* Transiciones suaves */
+    }
+    
+    .form-control:focus, 
+    textarea:focus {
+        cursor: none;
+        background-color: #333333; /* Cambio de color de fondo al enfocar */
+        border-color: #ff9500; /* Cambio de color de borde al enfocar */
+        outline: none; /* Quitar el borde por defecto al enfocar */
+    }
+    
+    .send-button {
+        cursor: none;
+        margin-top: 15px;
+        height: 40px; /* Altura ligeramente mayor para mejor usabilidad */
+        width: 400px;
+        overflow: hidden;
+        background-color: #fc7a00;
+        color: #ffffff; /* Color del texto para asegurar que sea legible */
+        border: none; /* Quitar el borde por defecto */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+        font-size: 16px; /* Tamaño de fuente adecuado */
+        font-weight: bold; /* Texto en negrita para destacar */
+        letter-spacing: 1px; /* Espaciado entre letras */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+        transition: all 0.3s ease; /* Transiciones más suaves */
+        text-align: center; /* Centrar el texto */
+        line-height: 40px; /* Alinear el texto verticalmente */
+    }
+    
+    .send-button:hover {
+        cursor: none;
+        background-color: #e66900; /* Color de fondo al pasar el mouse */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
+        transform: translateY(-2px); /* Leve elevación al pasar el mouse */
+    }
+    
+    .send-button:active {
+        cursor: none;
+        background-color: #cc5e00; /* Color de fondo al hacer clic */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más pequeña al hacer clic */
+        transform: translateY(2px); /* Simula un efecto de "presionado" */
+    }
+    
+    .alt-send-button {
+        cursor: none;
+        width: 400px;
+        height: 40px; /* Altura igual que el botón principal para consistencia */
+        background-color: #fc7a00;
+        color: #ffffff;
+        margin-left: -8px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: all 0.3s ease; /* Transiciones más suaves */
+        text-align: center;
+        line-height: 40px; /* Alinear el texto verticalmente */
+        position: relative; /* Necesario para la animación */
+        overflow: hidden; /* Ocultar contenido que se mueve fuera de los límites */
+    }
+    
+    .send-text {
+        display: block;
+        color: #ffffff !important;
+        margin-top: 10px;
+        font: 700 12px 'Lato', sans-serif;
+        letter-spacing: 2px;
+    }
+    
+    .alt-send-button::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%; /* Comienza fuera de la vista a la izquierda */
+        background: rgba(255, 255, 255, 0.2); /* Efecto de color más claro */
+        transition: all 0.5s ease; /* Transiciones más largas y suaves */
+    }
+    
+    .alt-send-button:hover::before {
+        left: 0; /* Se desliza desde la izquierda hacia la derecha */
+    }
+    
+    /* Estilos para el contenedor principal de la página de contacto */
+    .direct-contact-container {
+        max-width: 400px; /* Ancho máximo del contenedor */
+    }
+
+    /* Estilos para la lista de información de ubicación, teléfono y correo electrónico */
+    .contact-list {
+        list-style-type: none; /* Elimina los estilos de lista predeterminados */
+        margin-left: -30px; /* Corrige el margen izquierdo */
+        padding-right: 20px; /* Añade un poco de relleno al lado derecho */
+    }
+
+    /* Estilos para los elementos de la lista */
+    .list-item {
+        line-height: 2; /* Altura de línea */
+        color: #aaa; /* Color de texto */
+    }
+
+    /* Estilos para el texto de contacto */
+    .contact-text {
+        font: 12px 'Lato', sans-serif; /* Fuente y tamaño */
+        letter-spacing: 1.9px; /* Espaciado entre letras */
+        color: #bbb; /* Color de texto */
+    }
+
+    /* Estilos para la ubicación */
+    .place {
+        margin-left: 62px; /* Ajusta el margen izquierdo */
+    }
+
+    /* Estilos para el teléfono */
+    .phone {
+        margin-left: 56px; /* Ajusta el margen izquierdo */
+    }
+
+    /* Estilos para el correo electrónico */
+    .gmail {
+        margin-left: 53px; /* Ajusta el margen izquierdo */
+    }
+
+    /* Estilos para los enlaces de texto de contacto */
+    .contact-text a {
+        color: #bbb; /* Color de enlace */
+        text-decoration: none; /* Quita el subrayado del enlace */
+        transition-duration: 0.2s; /* Duración de la transición */
+    }
+
+    /* Estilos para los enlaces de texto de contacto al pasar el ratón por encima */
+    .contact-text a:hover {
+        color: #fff; /* Cambia el color del enlace al pasar el ratón por encima */
+        text-decoration: none; /* Quita el subrayado al pasar el ratón por encima */
+    }
+
+    /* Estilos para la lista de iconos de redes sociales */
+    .social-media-list {
+        position: relative; /* Posición relativa */
+        font-size: 22px; /* Tamaño de fuente */
+        text-align: center; /* Alineación del texto */
+        width: 100%; /* Ancho al 100% */
+        margin: 0 auto; /* Margen automático */
+        padding: 0; /* Sin relleno */
+    }
+
+    /* Estilos para los enlaces de iconos de redes sociales */
+    .social-media-list li a {
+        color: #fff; /* Color de enlace */
+    }
+
+    /* Estilos para los elementos de la lista de iconos de redes sociales */
+    .social-media-list li {
+        position: relative; /* Posición relativa */
+        display: inline-block; /* Elementos en línea */
+        height: 60px; /* Altura */
+        width: 60px; /* Ancho */
+        margin: 10px 3px; /* Márgenes */
+        line-height: 60px; /* Altura de línea igual a la altura */
+        border-radius: 50%; /* Borde redondeado */
+        color: #fff; /* Color de texto */
+        background-color: rgb(27,27,27); /* Color de fondo */
+        cursor: none; /* Cursor personalizado */
+        transition: all .2s ease-in-out; /* Transición suave */
+    }
+
+    /* Estilos para agregar un efecto después de pasar el ratón por encima */
+    .social-media-list li:after {
+        content: ''; /* Contenido vacío */
+        position: absolute; /* Posición absoluta */
+        top: 0; /* Posición superior */
+        left: 0; /* Posición izquierda */
+        width: 60px; /* Ancho */
+        height: 60px; /* Altura */
+        line-height: 60px; /* Altura de línea */
+        border-radius: 50%; /* Borde redondeado */
+        opacity: 0; /* Opacidad inicial */
+        box-shadow: 0 0 0 1px #1900fc; /* Sombra */
+        transition: all .2s ease-in-out; /* Transición suave */
+    }
+
+    /* Estilos al pasar el ratón por encima del icono */
+    .social-media-list li:hover {
+        background-color: #fc7a00; /* Cambia el color de fondo al pasar el ratón por encima */
+    }
+
+    /* Estilos para el efecto después de pasar el ratón por encima */
+    .social-media-list li:hover:after {
+        opacity: 1; /* Cambia la opacidad */
+        transform: scale(1.12); /* Escala */
+        transition-timing-function: cubic-bezier(0.37,0.74,0.15,1.65); /* Función de temporización de la transición */
+    }
+
+    /* Estilos para cambiar el color del enlace al pasar el ratón por encima */
+    .social-media-list li:hover a {
+        color: #000; /* Cambia el color del enlace */
+    }
+
+    /* Estilos generales para los enlaces */
+    a {
+        position: relative; /* Posición relativa */
+        z-index: 10; /* Índice z */
+        cursor: none; /* Cursor personalizado */
+    }
+
+    /* Estilos para los enlaces al hacer clic */
+    a:active{
+        position: relative; /* Posición relativa */
+        cursor: none; /* Cursor personalizado */
+    }
+
+    /* Estilos para el texto de derechos de autor */
+    .copyright {
+        font: 8px 'Oswald', sans-serif; /* Fuente y tamaño */
+        color: #555; /* Color de texto */
+        letter-spacing: 1px; /* Espaciado entre letras */
+        text-align: center; /* Alineación del texto */
+    }
+
+    /* Estilos para la línea horizontal */
+    hr {
+        border-color: rgb(255, 123, 0); /* Color del borde */
+    }
+
+/* Termina el footer */
+
+
+/* Ajustes para hacer la página responsiva */
+@media only screen and (max-width: 768px) {
+    .info-container p {
+        width: 90%; /* Reducir el ancho del párrafo en dispositivos móviles */
+        margin: 2rem auto; /* Centrar verticalmente */
+    }
+
+    .scroll_item img {
+        width: 150px; /* Reducción del tamaño de la imagen en dispositivos móviles */
+        height: auto;
+    }
+
+    .scroll_item p {
+        margin-top: 0.5rem; /* Reducción del espacio superior en dispositivos móviles */
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu .images .image-link {
+    width: 40vw;
+    margin: 0 12px 12px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    .info-container p {
+        width: 90%;
+    }
+    .scroll_item img {
+        width: 300px;
+    }
+    .scroll_item p {
+        margin-left: 10px;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .half-color {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fondo {
+        font-size: 18vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fondo2 {
+        font-size: 18vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu {
+    display: block;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu-nav {
+    flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu .images {
+    justify-content: center;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .direct-contact-container, .form-horizontal {
+        margin: 0 auto;
+    }  
+    
+    .direct-contact-container {
+        margin-top: 60px;
+        max-width: 300px;
+    }    
+    .social-media-list li {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+    }
+    .social-media-list li:after {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+    }
+    
+    @media screen and (max-width: 569px) {
+    
+    .direct-contact-container, .form-wrapper {
+        float: none;
+        margin: 0 auto;
+    }  
+    .form-control, textarea {
+        
+        margin: 0 auto;
+    }
+    
+    
+    .name, .email, textarea {
+        width: 280px;
+    } 
+    
+    .direct-contact-container {
+        margin-top: 60px;
+        max-width: 280px;
+    }  
+    .social-media-list {
+        left: 0;
+    }
+    .social-media-list li {
+        height: 55px;
+        width: 55px;
+        line-height: 55px;
+        font-size: 2rem;
+    }
+    .social-media-list li:after {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+    }
+    
+    }
+    
+    @media screen and (max-width: 410px) {
+    .send-button {
+        width: 99%;
+    }
+}
